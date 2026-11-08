@@ -17,6 +17,8 @@ jobs:
       - name: SAST - SpotBugs
         if: always()
         run: bash gradlew spotbugsMain
+      - name: Reset Dependency-Check database
+        run: bash gradlew dependencyCheckPurge
       - name: SCA - OWASP Dependency-Check
         if: always()
         env:
