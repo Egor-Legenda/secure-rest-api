@@ -1,0 +1,12 @@
+<FindBugsFilter>
+    <!-- Spring constructor injection deliberately shares one synchronized storage service. -->
+    <Match>
+        <Or>
+            <Class name="edu.itmo.spring_boot_project.controller.AuthController"/>
+            <Class name="edu.itmo.spring_boot_project.controller.DataController"/>
+            <Class name="edu.itmo.spring_boot_project.filter.JwtAuthenticationFilter"/>
+        </Or>
+        <Field name="storage"/>
+        <Bug pattern="EI_EXPOSE_REP2"/>
+    </Match>
+</FindBugsFilter>
